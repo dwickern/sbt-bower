@@ -15,7 +15,7 @@ Bower only runs in Node ([issue here](apigee/trireme#86)), so add this line to y
 SBT doesn't support npm dependencies for plugins ([issue here](sbt/sbt-js-engine#6)), so you have to include bower in your project. Create a `package.json` in the root of the project:
 
     {
-      "dependencies": {
+      "devDependencies": {
         "bower": "~1.3"
       }
     }
