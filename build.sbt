@@ -1,10 +1,12 @@
+import bintray.Keys._
+
 sbtPlugin := true
 
 organization := "com.github.dwickern"
 
 name := "sbt-bower"
 
-version := "1.0.0-SNAPSHOT"
+version := "1.0.0"
 
 scalaVersion := "2.10.4"
 
@@ -22,10 +24,11 @@ licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html
 
 publishMavenStyle := false
 
-publishTo := {
-  if (isSnapshot.value) Some(Classpaths.sbtPluginSnapshots)
-  else Some(Classpaths.sbtPluginReleases)
-}
+bintraySettings
+
+repository in bintray := "sbt-plugins"
+
+bintrayOrganization in bintray := None
 
 scriptedSettings
 
