@@ -1,0 +1,8 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "Sample Play application",
+  "dependencies": {
+    "jquery": "~2.0"
+  }
+}
