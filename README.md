@@ -8,11 +8,11 @@ Add this line to your project's `plugins.sbt` file:
 
     addSbtPlugin("com.github.dwickern" % "sbt-bower" % "1.0.0")
 
-Bower only runs in Node ([issue here](apigee/trireme#86)), so add this line to your `build.sbt` file:
+Bower only runs in Node, so add this line to your `build.sbt` file:
 
     JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
 
-SBT doesn't support npm dependencies for plugins ([issue here](sbt/sbt-js-engine#6)), so you have to include bower in your project. Create a `package.json` in the root of the project:
+SBT doesn't support npm dependencies for plugins, so you have to include bower in your project. Create a `package.json` in the root of the project:
 
     {
       "devDependencies": {
