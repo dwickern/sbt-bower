@@ -2,6 +2,8 @@
 
 An SBT plugin which downloads dependencies using [bower].
 
+Compatible with Play 2.3.
+
 ## Installation
 
 Add this line to your project's `plugins.sbt` file:
