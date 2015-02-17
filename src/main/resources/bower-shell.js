@@ -10,7 +10,7 @@ process.chdir(cwd);
 
 var bower = require('bower');
 
-bower.commands.install(null, null, { cwd: cwd, directory: target })
+bower.commands.update(null, null, { cwd: cwd, directory: target })
     .on('error', function(error) {
         console.log("\u0010" + JSON.stringify({ success: false, error: error.message }));
     })
