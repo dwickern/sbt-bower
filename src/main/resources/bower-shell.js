@@ -14,6 +14,9 @@ bower.commands.install(null, null, { cwd: cwd, directory: target })
     .on('error', function(error) {
         console.log("\u0010" + JSON.stringify({ success: false, error: error.message }));
     })
+    .on('log', function(log) {
+        console.log(log.message);
+    })
     .on('end', function() {
         console.log("\u0010" + JSON.stringify({ success: true }));
     });
