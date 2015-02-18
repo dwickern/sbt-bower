@@ -52,12 +52,18 @@ object SbtBower extends AutoPlugin {
 
   override def projectSettings = settings ++ jsTaskSettings
 
+  /** Whether the bower task has been run yet for this project */
+  var modified = 0L
+
   private def runBower: Def.Initialize[Task[Seq[File]]] = Def.task {
     val logger = streams.value.log("bower")
-
     val config = baseDirectory.value / "bower.json"
 
-    if (config.exists()) {
+    val lastModified = config.lastModified()
+    if (lastModified <= this.modified) {
+      logger.debug(s"Already downloaded Bower dependencies for ${projectInfo.value.nameFormal}")
+      Seq.empty
+    } else {
       logger.info(s"Downloading Bower dependencies for ${projectInfo.value.nameFormal}")
 
       val modules = (nodeModuleDirectories in Assets).value.map(_.getPath)
@@ -87,12 +93,12 @@ object SbtBower extends AutoPlugin {
         JsString(error) <- fields.get("error")
       } yield error
 
-      error.foreach(logger.error(_))
+      error match {
+        case Some(err) => logger.error(err)
+        case _ => this.modified = lastModified
+      }
 
       output.***.get.filterNot(_.isDirectory)
-    } else {
-      logger.info(s"No bower.json present for ${projectInfo.value.nameFormal}")
-      Seq()
     }
   }
 }
