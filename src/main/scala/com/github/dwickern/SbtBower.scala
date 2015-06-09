@@ -35,7 +35,7 @@ object SbtBower extends AutoPlugin {
 
     // SBT can't load NPM modules from the Plugin,
     // so the user of this plugin must provide bower
-    bower := runBower.dependsOn(nodeModules in Assets).value,
+    bower := runBower.dependsOn(npmNodeModules in Assets).value,
 
     // Generate as sources instead of resources because they
     // might be used in the asset pipeline (e.g. uglify)
