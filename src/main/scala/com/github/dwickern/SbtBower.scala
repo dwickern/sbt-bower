@@ -35,11 +35,7 @@ object SbtBower extends AutoPlugin {
 
     // SBT can't load NPM modules from the Plugin,
     // so the user of this plugin must provide bower
-    bower := runBower.dependsOn(npmNodeModules in Assets).value,
-
-    // Generate as sources instead of resources because they
-    // might be used in the asset pipeline (e.g. uglify)
-    sourceGenerators in Assets <+= bower
+    bower := runBower.dependsOn(npmNodeModules in Assets).value
   )
 
   val jsTaskSettings = inTask(bower) {
