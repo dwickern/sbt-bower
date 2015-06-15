@@ -6,7 +6,7 @@ organization := "com.github.dwickern"
 
 name := "sbt-bower"
 
-version := "1.0.2"
+version := "1.0.3"
 
 scalaVersion := "2.10.4"
 

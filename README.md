@@ -8,7 +8,7 @@ Compatible with Play 2.3.
 
 Add this line to your project's `plugins.sbt` file:
 
-    addSbtPlugin("com.github.dwickern" % "sbt-bower" % "1.0.2")
+    addSbtPlugin("com.github.dwickern" % "sbt-bower" % "1.0.3")
 
 Bower only runs in Node, so add this line to your `build.sbt` file:
 
